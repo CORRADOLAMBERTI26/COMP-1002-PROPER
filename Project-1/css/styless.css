@@ -1,0 +1,376 @@
+@charset "UTF-8";
+
+/* 
+  Sony Walkman Retro Site Styles
+  Author: YOUR NAME
+  Course: COMP 1002
+  Description: Global layout, typography, colours.
+*/
+
+/* Basic reset-ish */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #050810;
+    color: #f5f5f5;
+}
+
+/* Main layout wrapper */
+body {
+    margin: 0 auto;
+    max-width: 1080px;
+    min-width: 768px;
+    background: linear-gradient(135deg, #09121f 0%, #10253c 40%, #080c15 100%);
+    border-left: 3px solid #1e88e5;
+    border-right: 3px solid #1e88e5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header and navigation */
+header {
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+}
+
+header .brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .brand img {
+    width: 60px;
+    height: auto;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+header h2 {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #b0bec5;
+    margin-top: 0.2rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(144,164,174,0.7);
+    color: #eceff1;
+    transition: background 0.2s, transform 0.1s, border-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus {
+    background: rgba(30, 136, 229, 0.4);
+    border-color: #1e88e5;
+    transform: translateY(-1px);
+}
+
+nav a.active {
+    background: #1e88e5;
+    border-color: #1e88e5;
+}
+
+/* Main content area */
+
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+/* Hero / promotion area */
+
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.hero-text h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p.lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #cfd8dc;
+    margin-bottom: 1rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(21, 101, 192, 0.2);
+    border: 1px solid rgba(144,164,174,0.7);
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #bbdefb;
+}
+
+.hero-cta {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background: #1e88e5;
+    color: #fff;
+    box-shadow: 0 0 18px rgba(30,136,229,0.35);
+}
+
+.btn-primary:hover {
+    background: #1565c0;
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #bbdefb;
+    border: 1px solid rgba(144,164,174,0.7);
+}
+
+.btn-ghost:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* Hero image */
+
+.hero-image {
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.6);
+}
+
+/* Cards and sections */
+
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    border-left: 3px solid #1e88e5;
+    padding-left: 0.5rem;
+}
+
+.section p {
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+    color: #cfd8dc;
+}
+
+.section ul {
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+    color: #cfd8dc;
+}
+
+/* Simple two-column layout for some pages */
+
+.grid-two {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 1.75rem;
+}
+
+/* Review stars and form */
+
+.rating-display {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: #ffeb3b;
+}
+
+.star-rating {
+    display: flex;
+    gap: 0.2rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.star-rating span {
+    transition: transform 0.1s;
+}
+
+.star-rating span:hover {
+    transform: translateY(-1px);
+}
+
+/* Forms */
+
+form {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.9rem;
+}
+
+label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #b0bec5;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    border: 1px solid rgba(176,190,197,0.6);
+    background: rgba(2, 14, 26, 0.9);
+    color: #eceff1;
+    font-size: 0.95rem;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #1e88e5;
+    box-shadow: 0 0 0 1px rgba(30,136,229,0.4);
+}
+
+.form-hint {
+    font-size: 0.8rem;
+    color: #90a4ae;
+}
+
+.form-error {
+    font-size: 0.8rem;
+    color: #ff8a80;
+}
+
+/* Small table for specs */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0.75rem;
+}
+
+th,
+td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid rgba(144,164,174,0.4);
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+th {
+    color: #eceff1;
+}
+
+/* Footer */
+
+footer {
+    padding: 1rem 2rem 1.4rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.4);
+    font-size: 0.8rem;
+    color: #90a4ae;
+}
+
+footer p {
+    margin-bottom: 0.2rem;
+}
+
+footer a {
+    color: #90caf9;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Small screens (in case) */
+
+@media (max-width: 900px) {
+    body {
+        min-width: 0;
+    }
+
+    .hero,
+    .grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding-inline: 1rem;
+    }
+
+    main {
+        padding-inline: 1rem;
+    }
+
+    footer {
+        padding-inline: 1rem;
+    }
+}
