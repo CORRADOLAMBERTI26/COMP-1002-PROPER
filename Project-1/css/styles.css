@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-/* Basic reset */
+/* Global Reset + Base Page Setup */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,7 +14,7 @@ html {
     color: #f5f5f5;
 }
 
-/* Main layout wrapper */
+/* The main layout wrapper. Sets max width, background gradient, and blue borders. */
 body {
     margin: 0 auto;
     width: 100%;
@@ -28,7 +29,7 @@ body {
     align-items: center;
 }
 
-/* Center header/main/footer */
+/* Ensures header, main, and footer never stretch too wide */
 header,
 main,
 footer {
@@ -37,7 +38,8 @@ footer {
     margin: 0 auto;
 }
 
-/* Header */
+/*Header and Navigation */
+
 header {
     padding: 1.5rem 2rem 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -72,7 +74,7 @@ header h2 {
     margin-top: 0.2rem;
 }
 
-/* Navigation */
+/* Navigation links at the top of each page */
 nav {
     margin-top: 1rem;
 }
@@ -83,6 +85,7 @@ nav ul {
     gap: 1rem;
 }
 
+/* Basic styling for menu buttons */
 nav a {
     text-decoration: none;
     text-transform: uppercase;
@@ -95,6 +98,7 @@ nav a {
     transition: background 0.15s;
 }
 
+/* Hover and active states for navigation buttons */
 nav a:hover,
 nav a:focus {
     background: rgba(30, 136, 229, 0.3);
@@ -105,7 +109,8 @@ nav a.active {
     border-color: #1e88e5;
 }
 
-/* Main content */
+/* Main Content Layout */
+
 main {
     flex: 1;
     padding: 2rem;
@@ -114,7 +119,9 @@ main {
     align-items: center;
 }
 
-/* Hero section */
+/*Hero Section (Homepage) */
+
+/* Two-column hero area: text on left, image on right */
 .hero {
     display: grid;
     grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
@@ -128,13 +135,15 @@ main {
     margin-bottom: 0.5rem;
 }
 
-.hero-text p.lead {
+/* Lead paragraph that introduces the product */
+.hero-text .lead {
     font-size: 1.05rem;
     line-height: 1.6;
     color: #cfd8dc;
     margin-bottom: 1rem;
 }
 
+/* Badge showing "New for 1979" */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -150,7 +159,15 @@ main {
     color: #bbdefb;
 }
 
-/* ⭐ SIMPLIFIED BUTTONS (NO GLOW, NO OUTLINE) */
+/* Buttons beneath the hero text */
+.hero-cta {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.9rem;
+}
+
+/* Button Styles */
+
 .btn {
     display: inline-block;
     padding: 0.55rem 1.1rem;
@@ -162,16 +179,16 @@ main {
     letter-spacing: 0.09em;
     text-decoration: none;
     transition: background 0.15s, border-color 0.15s;
-    outline: none; /* kill highlight */
 }
 
-/* Remove focus highlight entirely */
+/* Remove outlines on click/focus */
 .btn:focus,
 .btn:active {
     outline: none;
     box-shadow: none;
 }
 
+/* Solid blue button */
 .btn-primary {
     background: #1e88e5;
     color: white;
@@ -182,6 +199,7 @@ main {
     background: #1565c0;
 }
 
+/* Transparent / outlined button */
 .btn-ghost {
     background: transparent;
     color: #d2e4f5;
@@ -192,156 +210,4 @@ main {
     background: rgba(255,255,255,0.08);
 }
 
-/* Hero image */
-.hero-image {
-    text-align: center;
-}
 
-.hero-image img {
-    max-width: 100%;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-/* Sections */
-.section {
-    margin-bottom: 2.5rem;
-    width: 100%;
-}
-
-.section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
-    border-left: 3px solid #1e88e5;
-    padding-left: 0.5rem;
-}
-
-.section p {
-    line-height: 1.6;
-    margin-bottom: 0.6rem;
-    color: #cfd8dc;
-}
-
-.section ul {
-    margin-left: 1.2rem;
-    margin-top: 0.5rem;
-    color: #cfd8dc;
-}
-
-/* Two-column layout */
-.grid-two {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 1.75rem;
-    width: 100%;
-}
-
-/* Reviews */
-.rating-display {
-    margin-top: 0.5rem;
-    font-size: 0.95rem;
-    color: #ffeb3b;
-}
-
-.star-rating {
-    display: flex;
-    gap: 0.2rem;
-    font-size: 1.4rem;
-    cursor: pointer;
-}
-
-.star-rating span:hover {
-    transform: translateY(-1px);
-}
-
-/* Forms */
-form {
-    margin-top: 1rem;
-    display: grid;
-    gap: 0.9rem;
-}
-
-label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: #b0bec5;
-}
-
-input[type="text"],
-input[type="email"],
-textarea,
-select {
-    width: 100%;
-    padding: 0.55rem 0.7rem;
-    border-radius: 6px;
-    border: 1px solid rgba(176,190,197,0.6);
-    background: rgba(2,14,26,0.9);
-    color: #eceff1;
-    font-size: 0.95rem;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 80px;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: #1e88e5;
-}
-
-/* Table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 0.75rem;
-}
-
-th,
-td {
-    padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid rgba(144,164,174,0.4);
-    text-align: left;
-}
-
-th {
-    color: #eceff1;
-}
-
-/* Footer */
-footer {
-    padding: 1rem 2rem 1.4rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    background: rgba(0,0,0,0.4);
-    font-size: 0.8rem;
-    color: #90a4ae;
-    text-align: center;
-}
-
-/* Small screens */
-@media (max-width: 900px) {
-    body {
-        min-width: 0;
-    }
-
-    .hero,
-    .grid-two {
-        grid-template-columns: 1fr;
-    }
-
-    header {
-        padding-inline: 1rem;
-    }
-
-    main {
-        padding-inline: 1rem;
-    }
-
-    footer {
-        padding-inline: 1rem;
-    }
-}

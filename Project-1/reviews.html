@@ -3,28 +3,30 @@
 <head>
     <meta charset="utf-8" />
 
-    <!-- Feedback + star rating page -->
+    <!-- Page for users to rate the product and leave feedback -->
     <meta name="author" content="Corrado Lamberti" />
     <title>Rate &amp; Comment on the Sony Walkman TPS-L2</title>
 
-    <!-- Shared CSS + JS -->
+    <!-- Shared styling and interaction scripts -->
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/scripts.js" defer></script>
 </head>
 
 <body>
 
-<!-- Shared site header -->
+<!-- Header with Sony branding and global navigation -->
 <header>
     <div class="brand">
+
+        <!-- Sony logo -->
         <img src="images/sony-logo.png" alt="Sony logo" />
+
         <div>
             <h1>Sony Walkman TPS-L2</h1>
             <h2>Portable Stereo Cassette Player – 1979</h2>
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="index.html">Promotion</a></li>
@@ -38,11 +40,11 @@
 
 <main>
 
-    <!-- Interactive star rating widget -->
+    <!-- Star rating widget -->
     <section class="section">
         <h3>How would you rate your Walkman experience?</h3>
 
-        <!-- Stars are updated visually by JavaScript -->
+        <!-- Stars update visually when users interact with them -->
         <div class="star-rating">
             <span data-star="1">☆</span>
             <span data-star="2">☆</span>
@@ -51,18 +53,18 @@
             <span data-star="5">☆</span>
         </div>
 
-        <!-- Text updated dynamically when a star is clicked -->
+        <!-- Text updated by JavaScript to show selected rating -->
         <div id="rating-text" class="rating-display">Click a star to rate.</div>
     </section>
 
     <!-- Customer feedback form -->
     <section class="section">
-        <h3>Customer feedback form</h3>
+        <h3>Customer Feedback</h3>
 
-        <!-- JavaScript validation checks required fields -->
+        <!-- Form uses JavaScript to validate user input before submitting -->
         <form id="feedback-form" action="#" method="post">
 
-            <!-- Error messages displayed here -->
+            <!-- Errors appear here if any fields are left blank -->
             <div id="form-errors" class="form-error"></div>
 
             <label for="name">Name *</label>
@@ -74,13 +76,14 @@
             <label for="message">Comment *</label>
             <textarea id="message" name="message"></textarea>
 
-            <!-- Submit button -->
+            <!-- Submit button triggers validation -->
             <button type="submit" class="btn btn-primary">Submit Feedback</button>
         </form>
     </section>
 
 </main>
 
+<!-- Footer displayed across the site -->
 <footer>
     <p>&copy; 1979 Sony Corporation. Feedback page recreated by <strong>Corrado Lamberti</strong>.</p>
 </footer>
