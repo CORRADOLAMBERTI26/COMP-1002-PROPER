@@ -1,10 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>Pizza Order Form</title>
-	<meta name="description" content="Order your custom pizza using our interactive form." />
-	<link rel="stylesheet" href="styles.css" />
+    <meta charset="utf-8" />
+
+    <!-- Page metadata -->
+    <title>Pizza Order Form | Assignment 1</title>
+    <meta name="author" content="Corrado Lamberti" />
+    <meta name="description" content="Pizza ordering form using HTML form controls" />
 </head>
 
+<body>
+
+    <!-- Page Header -->
+    <header>
+        <h1>Order Your Pizza</h1>
+        <p>Complete the form below to place your pizza order.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Introduction Section -->
+        <section>
+            <p>
+                We make fresh, handcrafted pizzas using high-quality ingredients.
+                <img src="photos/pizza.jpg" alt="Freshly baked pizza with melted cheese, tomatoes, and basil" />
+            </p>
+        </section>
+
+        <!-- Pizza Order Form -->
+        <section>
+            <h2>Pizza Order Form</h2>
+
+            <form action="#" method="post">
+
+                <!-- Customer Information -->
+                <fieldset>
+                    <legend>Customer Information</legend>
+
+                    <label for="name">Full Name:</label><br />
+                    <input type="text" id="name" name="name" required /><br /><br />
+
+                    <label for="phone">Phone Number:</label><br />
+                    <input type="tel" id="phone" name="phone" /><br /><br />
+
+                    <label for="address">Delivery Address:</label><br />
+                    <textarea id="address" name="address" rows="3" cols="30"></textarea>
+                </fieldset>
+
+                <br />
+
+                <!-- Pizza Details -->
+                <fieldset>
+                    <legend>Pizza Details</legend>
+
+                    <label for="quantity">Number of Pizzas:</label><br />
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" /><br /><br />
+
+                    <label for="size">Pizza Size:</label><br />
+                    <select id="size" name="size">
+                        <option value="small">Small (6 slices)</option>
+                        <option value="medium">Medium (8 slices)</option>
+                        <option value="large">Large (12 slices)</option>
+                    </select><br /><br />
+
+                    <p>Pizza Shape:</p>
+                    <input type="radio" id="round" name="shape" value="round" checked />
+                    <label for="round">Round</label><br />
+
+                    <input type="radio" id="square" name="shape" value="square" />
+                    <label for="square">Square</label>
+                </fieldset>
+
+                <br />
+
+                <!-- Crust and Toppings -->
+                <fieldset>
+                    <legend>Crust and Toppings</legend>
+
+                    <p>Crust Type:</p>
+                    <input type="radio" id="thin" name="crust" value="thin" />
+                    <label for="thin">Thin Crust</label><br />
+
+                    <input type="radio" id="deep" name="crust" value="deep" />
+                    <label for="deep">Deep Dish</label><br />
+
+                    <input type="radio" id="stuffed" name="crust" value="stuffed" />
+                    <label for="stuffed">Stuffed Crust</label><br /><br />
+
+                    <p>Toppings:</p>
+                    <input type="checkbox" id="pepperoni" name="toppings[]" value="pepperoni" />
+                    <label for="pepperoni">Pepperoni</label><br />
+
+                    <input type="checkbox" id="mushrooms" name="toppings[]" value="mushrooms" />
+                    <label for="mushrooms">Mushrooms</label><br />
+
+                    <input type="checkbox" id="olives" name="toppings[]" value="olives" />
+                    <label for="olives">Olives</label><br />
+
+                    <input type="checkbox" id="extra-cheese" name="toppings[]" value="extra cheese" />
+                    <label for="extra-cheese">Extra Cheese</label>
+                </fieldset>
+
+                <br />
+
+                <!-- Order Type -->
+                <fieldset>
+                    <legend>Order Type</legend>
+
+                    <input type="radio" id="delivery" name="orderType" value="delivery" />
+                    <label for="delivery">Delivery</label><br />
+
+                    <input type="radio" id="takeout" name="orderType" value="takeout" />
+                    <label for="takeout">Take Out</label><br />
+
+                    <input type="radio" id="eatin" name="orderType" value="eatin" />
+                    <label for="eatin">Eat In</label>
+                </fieldset>
+
+                <br />
+
+                <!-- Special Instructions -->
+                <fieldset>
+                    <legend>Special Instructions</legend>
+
+                    <label for="instructions">Anything we should know?</label><br />
+                    <textarea id="instructions" name="instructions" rows="4" cols="40"></textarea>
+                </fieldset>
+
+                <br />
+
+                <!-- Form Buttons -->
+                <input type="submit" value="Place Order" />
+                <input type="reset" value="Reset Form" />
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Page Footer -->
+    <footer>
+        <p>&copy; 2025 Corrado Lamberti. Assignment 1.</p>
+    </footer>
+
+</body>
 </html>
