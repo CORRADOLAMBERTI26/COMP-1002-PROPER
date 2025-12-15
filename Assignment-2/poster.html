@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Corrado Lamberti" />
+  <meta name="description" content="Movie poster recreation using semantic HTML and CSS." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inception (2010) Poster Recreation</title>
+
+  <!-- Embedded CSS -->
+  <style>
+    /* Page basics */
+    :root {
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.78);
+      --soft: rgba(255,255,255,0.65);
+      --shadow: rgba(0,0,0,0.65);
+      --bg: #0b141b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(circle at 40% 20%, #1b2d3a, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* “Poster” frame */
+    .poster-wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .poster {
+      position: relative;
+      width: min(900px, 92vw);
+      aspect-ratio: 2 / 3; /* classic one-sheet shape */
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow:
+        0 22px 70px rgba(0,0,0,0.55),
+        0 2px 0 rgba(255,255,255,0.06) inset;
+      background: #000;
+    }
+
+    /* Background image */
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.10), rgba(0,0,0,0.70) 70%, rgba(0,0,0,0.92)),
+        url("images/inception-poster.jpg") center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.01);
+    }
+
+    /* subtle “fog” */
+    .poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 35%, rgba(255,255,255,0.10), rgba(255,255,255,0) 45%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    /* Content layering */
+    header, main, footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Top credits (names of people) */
+    header {
+      padding: 1.5rem 1.6rem 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      text-align: center;
+      font-weight: 600;
+      font-size: clamp(0.62rem, 1.4vw, 0.85rem);
+      color: var(--muted);
+      text-shadow: 0 2px 14px var(--shadow);
+    }
+
+    header .names {
+      margin: 0;
+    }
+
+    /* Center tagline */
+    main {
+      height: 100%;
+      display: grid;
+      grid-template-rows: 1fr auto 1fr;
+      padding: 0 1.6rem;
+    }
+
+    .tagline {
+      align-self: start;
+      margin-top: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: clamp(0.9rem, 2.3vw, 1.25rem);
+      color: rgba(255,255,255,0.85);
+      text-shadow: 0 2px 18px var(--shadow);
+    }
+
+    /* Title block */
+    .title-block {
+      align-self: end;
+      text-align: center;
+      padding-bottom: 2.2rem;
+    }
+
+    .title {
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.34em;
+      font-size: clamp(2.2rem, 6vw, 4.3rem);
+      text-shadow: 0 8px 30px rgba(0,0,0,0.85);
+    }
+
+    .subtitle {
+      margin: 0.5rem 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: clamp(0.75rem, 1.8vw, 1rem);
+      color: var(--soft);
+      text-shadow: 0 2px 14px var(--shadow);
+    }
+
+    /* Billing/footer area */
+    footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.2rem 1.4rem 1.3rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0));
+    }
+
+    .billing {
+      margin: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.72);
+      font-size: clamp(0.58rem, 1.25vw, 0.78rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.9);
+    }
+
+    .release {
+      margin: 0.45rem 0 0;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      font-size: clamp(0.8rem, 2vw, 1.05rem);
+    }
+
+    /* Links section */
+    .links {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.2rem;
+      font-size: 0.92rem;
+    }
+
+    .links a {
+      color: rgba(255,255,255,0.86);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 2px;
+    }
+
+    .links a:focus,
+    .links a:hover {
+      border-bottom-color: rgba(255,255,255,0.8);
+    }
+
+    /* Extra images “under the poster” */
+    .extras {
+      width: min(900px, 92vw);
+      margin-top: 1.2rem;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .extras figure {
+      margin: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    .extras img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .extras figcaption {
+      padding: 0.75rem 0.9rem 0.9rem;
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="poster-wrap">
+
+    <!-- Poster is the main -->
+    <article class="poster" aria-label="Inception movie poster recreation">
+
+      <!-- Top billing/cast names -->
+      <header>
+        <p class="names">
+          Leonardo DiCaprio &nbsp;&nbsp; Ken Watanabe &nbsp;&nbsp; Joseph Gordon-Levitt &nbsp;&nbsp; Marion Cotillard
+          &nbsp;&nbsp; Elliot Page &nbsp;&nbsp; Tom Hardy
+        </p>
+      </header>
+
+      <main>
+        <!-- Tagline -->
+        <section aria-labelledby="tagline">
+          <h2 id="tagline" class="sr-only">Tagline</h2>
+          <p class="tagline">The Dream Is Real.</p>
+        </section>
+
+        <!-- Title + short credit line -->
+        <section class="title-block" aria-labelledby="title">
+          <h1 id="title" class="title">Inception</h1>
+
+          <!-- textual copy -->
+          <p class="subtitle">
+            A film by Christopher Nolan
+          </p>
+        </section>
+
+        <!-- spacer row handled by grid -->
+        <div aria-hidden="true"></div>
+      </main>
+
+      <footer>
+        <!-- Small billing block style line -->
+        <p class="billing">
+          Warner Bros. Pictures presents &nbsp; • &nbsp; a Legendary Pictures production &nbsp; • &nbsp;
+          written and directed by Christopher Nolan
+        </p>
+
+        <!-- Release date line -->
+        <p class="release">In Theaters July 2010</p>
+
+        <!-- Hyperlinks to official site and reviews -->
+        <nav class="links" aria-label="Useful links">
+          <a href="https://www.warnerbros.com/movies/inception" target="_blank" rel="noopener">
+            Official Movie Page (Warner Bros.)
+          </a>
+          <a href="https://www.rogerebert.com/reviews/inception-2010" target="_blank" rel="noopener">
+            Review: RogerEbert.com
+          </a>
+          <a href="https://www.rottentomatoes.com/m/inception" target="_blank" rel="noopener">
+            Reviews: Rotten Tomatoes
+          </a>
+        </nav>
+      </footer>
+    </article>
+
+    <!-- Optional “supporting images” below the poster to make the page richer -->
+    <section class="extras" aria-label="Extra images">
+      <figure>
+        <img src="images/inception-city.jpg" alt="A cityscape inspired by the film Inception" />
+        <figcaption>
+          A secondary image to enhance the poster page layout (add your own downloaded still here).
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="images/inception-poster.jpg" alt="High-resolution Inception poster reference image" />
+        <figcaption>
+          The downloaded high-res poster image used as the background.
+        </figcaption>
+      </figure>
+    </section>
+
+  </div>
+</body>
+</html>
